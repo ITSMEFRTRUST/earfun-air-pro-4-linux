@@ -1,0 +1,16 @@
+# systemd --user unit for the earfun daemon. Install steps are in README.md: it expects
+# bin/earfun to be linked into ~/.local/bin, so it works from wherever you cloned the repo.
+[Unit]
+Description=EarFun Air Pro 4 controller daemon (single owner of the SPP channel)
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 -I %h/.local/bin/earfun daemon
+Restart=on-failure
+RestartSec=5
+# The daemon reconnects by itself when the buds come and go; it only needs D-Bus.
+NoNewPrivileges=yes
+PrivateTmp=yes
+
+[Install]
+WantedBy=default.target

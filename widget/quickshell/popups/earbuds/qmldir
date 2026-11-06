@@ -1,0 +1,11 @@
+singleton EarbudsState 1.0 EarbudsState.qml
+BatteryRing 1.0 BatteryRing.qml
+Chips 1.0 Chips.qml
+Dropdown 1.0 Dropdown.qml
+EqCurve 1.0 EqCurve.qml
+IntSlider 1.0 IntSlider.qml
+ModeSwitch 1.0 ModeSwitch.qml
+Section 1.0 Section.qml
+SettingRow 1.0 SettingRow.qml
+Toggle 1.0 Toggle.qml
+UntestedDot 1.0 UntestedDot.qml

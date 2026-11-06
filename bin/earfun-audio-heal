@@ -1,0 +1,9 @@
+#!/usr/bin/env -S python3 -I
+"""earfun-audio-heal entry point; see earfun/heal.py.  Usage: earfun-audio-heal [--stdin]"""
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
+from earfun.heal import main  # noqa: E402
+
+sys.exit(main())

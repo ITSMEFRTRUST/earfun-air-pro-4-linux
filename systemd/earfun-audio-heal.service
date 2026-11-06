@@ -1,0 +1,17 @@
+# systemd --user unit: reconnect the buds when their audio stream breaks. Install steps are in
+# README.md: it expects bin/earfun-audio-heal to be linked into ~/.local/bin.
+# Finds the buds through BlueZ. To name them yourself, add Environment=EARFUN_MAC=XX:XX:XX:XX:XX:XX
+[Unit]
+Description=Reconnect the EarFun buds when their A2DP stream breaks (bud swap)
+After=wireplumber.service
+# needs: read access to the system journal (-u bluetooth) and python-dbus
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 -I %h/.local/bin/earfun-audio-heal
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=yes
+
+[Install]
+WantedBy=default.target
